@@ -44,15 +44,15 @@ This is a binary classification problem:
 
 ### Dataset Characteristics
 
-| Property | Value |
-|---|---:|
-| Total instances | 569 |
-| Input features used | 30 |
-| Original identifier | `id` |
-| Target | `diagnosis` |
-| Benign samples | 357 |
-| Malignant samples | 212 |
-| Missing feature values | None |
+| Property                 | Value |
+|--------------------------|---:|
+| Total instances          | 569 |
+| Input features used      | 30 |
+| Original identifier      | `id` |
+| Target | `diagnosis`     |
+| Benign samples           | 357 |
+| Malignant samples        | 212 |
+| Missing feature values   | None |
 
 The input measurements are computed from digitized images of fine needle aspirates (FNA) of breast masses and describe characteristics of cell nuclei.
 
@@ -75,10 +75,10 @@ The `id` column is excluded from training because it is an identifier rather tha
 
 A stratified 80:20 train-test split is performed using `random_state=42`.
 
-| Split | Samples |
-|---|---:|
+| Split        | Samples |
+|--------------|---:|
 | Training set | 455 |
-| Test set | 114 |
+| Test set     | 114 |
 
 Stratification preserves the class distribution across training and test subsets. The 114 held-out observations are exported to `test_data.csv`. They are not used to train any of the five models.
 
@@ -88,7 +88,7 @@ Stratification preserves the class distribution across training and test subsets
 
 **GitHub Repository:**
 
-`<ADD YOUR GITHUB REPOSITORY LINK HERE>`
+`https://github.com/yuvrajGaikwad/ml-classification-assignment`
 
 ---
 
@@ -96,7 +96,7 @@ Stratification preserves the class distribution across training and test subsets
 
 **Streamlit App:**
 
-`<ADD YOUR STREAMLIT COMMUNITY CLOUD LINK HERE>`
+`https://ml-classification-assignment-sagexltlbumb7fu7rby8pq.streamlit.app/`
 
 ---
 
@@ -126,14 +126,14 @@ SVM uses the Radial Basis Function (RBF) kernel to model nonlinear class boundar
 
 ## Evaluation Metrics
 
-| Metric | Interpretation |
-|---|---|
-| Accuracy | Proportion of all samples classified correctly |
-| AUC | Ability of the model to rank positive cases above negative cases across thresholds |
-| Precision | Proportion of predicted malignant cases that are actually malignant |
-| Recall | Proportion of actual malignant cases correctly identified |
-| F1 Score | Harmonic mean of Precision and Recall |
-| MCC | Correlation between actual and predicted classes considering TP, TN, FP and FN |
+| Metric    | Interpretation                                                                     |
+|-----------|------------------------------------------------------------------------------------|
+| Accuracy  | Proportion of all samples classified correctly                                     |
+| AUC       | Ability of the model to rank positive cases above negative cases across thresholds |
+| Precision | Proportion of predicted malignant cases that are actually malignant                |
+| Recall    | Proportion of actual malignant cases correctly identified                          |
+| F1 Score  | Harmonic mean of Precision and Recall                                              |
+| MCC       | Correlation between actual and predicted classes considering TP, TN, FP and FN     |
 
 ---
 
@@ -160,6 +160,7 @@ All models were trained using the same training split and evaluated using the sa
 | KNN                    | KNN achieved 95.61% accuracy, an AUC of 0.9823 and an MCC of 0.9058. Precision was high at 97.44%, while recall was 90.48%. Feature standardization is particularly important for KNN because its predictions depend on distances between observations.                  |
 | Naive Bayes            | Naive Bayes achieved 92.11% accuracy and a strong AUC of 0.9891. However, it had the lowest recall at 85.71%, the lowest F1 Score at 0.8889 and the lowest MCC at 0.8292 among the five evaluated models.                                                                     |
 | Support Vector Machine | SVM produced the strongest overall performance. It achieved the highest accuracy of 97.37%, perfect precision of 100% on the held-out test set, a recall of 92.86%, the highest F1 Score of 0.9630 and the highest MCC of 0.9442. Its AUC was also excellent at 0.9947. |
+
 | **Overall Winner** | **Support Vector Machine (SVM)** is selected as the overall winner because it achieved the highest Accuracy, Precision, F1 Score and MCC while tying for the highest Recall and maintaining an excellent AUC. |
 
 ### Overall Result
@@ -317,22 +318,6 @@ The Streamlit application provides the assignment-required functionality:
 8. Deploy the application.
 9. Upload `test_data.csv` and verify the results for all five classifiers.
 
----
-
-## BITS Virtual Lab Execution
-
-The machine learning experiment was executed on BITS Virtual Lab using:
-
-```bash
-python3 train_models.py
-```
-
-The execution produced results for all five classifiers on the same held-out test set and generated the saved model artifacts and test CSV.
-
-A single screenshot of the BITS Virtual Lab execution showing the model evaluation results should be included in the final assignment PDF as execution proof.
-
----
-
 ## Reproducibility and Prevention of Data Leakage
 
 The implementation uses the following controls to ensure a fair comparison:
@@ -356,19 +341,3 @@ SVM achieved the strongest overall performance, with an Accuracy of `0.9737`, Pr
 
 ---
 
-## Final Submission Checklist
-
-Before generating the final PDF, verify that:
-
-- [x] Dataset satisfies at least 500 instances and 12 features
-- [x] All five required classifiers have been trained
-- [x] All six required metrics have been calculated
-- [x] `test_data.csv` has been generated
-- [x] Five trained models have been saved in `model/`
-- [x] `requirements.txt` has been created
-- [x] README contains the model comparison and observations
-- [ ] `app.py` is complete and tested
-- [ ] GitHub repository link has been inserted above
-- [ ] Streamlit Community Cloud link has been inserted above
-- [ ] BITS Virtual Lab screenshot has been added to the final PDF
-- [ ] README content has been included in the final PDF
